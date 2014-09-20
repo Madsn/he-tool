@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Server = require('../api/server/server.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -28,6 +29,26 @@ Thing.find({}).remove(function() {
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
   });
+});
+
+Server.find({}).remove(function() {
+    Server.create({
+        ip: {1:20,2:153,3:9,4:23},
+        hasher : 0,
+        npc : false
+    }, {
+        ip: {1:190,2:153,3:190,4:23},
+        hasher : 0,
+        npc : false
+    }, {
+        ip: {1:230,2:133,3:0,4:23},
+        hasher : 0,
+        npc : false
+    }, {
+        ip: {1:225,2:153,3:0,4:23},
+        hasher : 0,
+        npc : false
+    });
 });
 
 User.find({}).remove(function() {

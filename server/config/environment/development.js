@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/hetool-dev'
+    uri: 'mongodb://he-tool:he-pass@kahana.mongohq.com:10035/he-tool-dev'
   },
 
   seedDB: true
