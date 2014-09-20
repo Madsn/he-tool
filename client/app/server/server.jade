@@ -1,0 +1,19 @@
+div(ng-include='"components/navbar/navbar.html"')
+.container
+  p
+    | The delete server and server index api routes are restricted to users with the 'admin' role.
+  table.table
+    thead
+      tr
+        th Nick
+        th IP
+        th NPC
+        th Hasher version
+    tbody
+      tr(ng-repeat='server in servers')
+        td(ng-init='ip = ipToStr(server.ip)') {{server.nick || "-"}}
+        td(ng-click="copyToClipboard(ip)")  {{ip}}
+        td
+          input(type="checkbox", ng-model="server.npc", ng-click="update(server)")
+        td {{server.hasher == 0 ? '?' : server.hasher}}
+        td.trash.glyphicon.glyphicon-trash(ng-click='delete(server)')
