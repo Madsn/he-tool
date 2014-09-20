@@ -14,9 +14,12 @@ angular.module 'heToolApp'
   $scope.ipToStr = (ip) ->
     return ip[1] + "." + ip[2] + "." + ip[3] + "." + ip[4]
 
-  $scope.update = (server) ->
-    Server.update id: server._id
-    $scope.servers[server._id] = server
+  $scope.toggleNPC = (server) ->
+    $http.put '/api/servers/' + server._id,
+      nick: server.nick
+      ip: server.ip
+      npc: !server.npc
+      hasher: server.hasher
 
   $scope.copyToClipboard = (contents) ->
     window.prompt("Copy to clipboard: Ctrl+C, Enter", contents)

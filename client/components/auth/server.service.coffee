@@ -10,8 +10,3 @@ angular.module 'heToolApp'
       method: 'GET'
       params:
         id: 'me'
-
-    update:
-      method: 'PUT'
-      params:
-        id: '@_id'

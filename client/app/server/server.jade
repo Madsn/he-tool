@@ -9,11 +9,13 @@ div(ng-include='"components/navbar/navbar.html"')
         th IP
         th NPC
         th Hasher version
+        th
     tbody
       tr(ng-repeat='server in servers')
         td(ng-init='ip = ipToStr(server.ip)') {{server.nick || "-"}}
         td(ng-click="copyToClipboard(ip)")  {{ip}}
         td
-          input(type="checkbox", ng-model="server.npc", ng-click="update(server)")
+          input(type="checkbox", ng-model="server.npc", ng-click="toggleNPC(server)")
         td {{server.hasher == 0 ? '?' : server.hasher}}
-        td.trash.glyphicon.glyphicon-trash(ng-click='delete(server)')
+        td
+          span.trash.glyphicon.glyphicon-trash(ng-click='delete(server)')
