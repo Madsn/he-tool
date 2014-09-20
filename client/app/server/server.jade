@@ -22,9 +22,6 @@ div(ng-include='"components/navbar/navbar.html"')
         td
           input(type="checkbox", ng-model="server.npc", ng-change="update(server)")
         td.editable(ng-hide="editingHasher", ng-click="editingHasher=true") {{server.hasher | number: 1}}
-        td(ng-hide="editingHasher")
-          span.icon.glyphicon.glyphicon-chevron-up(ng-click="changeHasher(server, 1)")
-          span.icon.glyphicon.glyphicon-chevron-down(ng-click="changeHasher(server, -1)")
         td(ng-hide="!editingHasher", colspan="2")
           form.form(ng-submit="update(server); editingHasher=false")
             input(type="decimal", ng-model="server.hasher")

@@ -21,11 +21,5 @@ angular.module 'heToolApp'
       npc: server.npc
       hasher: server.hasher
 
-  $scope.changeHasher = (server, inc) ->
-    server.hasher = (server.hasher*10 + inc)/10
-    console.log(server.hasher)
-    if (server.hasher < 1)
-      server.hasher = 1
-
   $scope.copyToClipboard = (contents) ->
     window.prompt("Copy to clipboard: Ctrl+C, Enter", contents)
